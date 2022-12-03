@@ -1,7 +1,3 @@
----
-layout: editorial
----
-
 # 1. Parameters
 
 ### 뭔데
