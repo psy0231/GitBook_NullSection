@@ -30,10 +30,9 @@ apt install docker.io
 
 #### 장점
 
-*   일단은 가벼움.   \
+*   일단은 가벼움.
 
-
-    hw vitualization type2 보다 훨씬.
+    방식 특성상 hw vitualization보다 훨씬.
 *   편의성이 있는데
 
     image만 받아서 바로 실행 가능한 점으로\
@@ -75,8 +74,8 @@ apt install docker.io
     그래도 linux용 sw만 있는건 또 맞는것같음.
 * 태생적으로 cli가 더 적합해서\
   gui앱은 좀 힘든것같다.\
-  근데 서버는 서버고 외부에서는 web이나  \
-  다른식으로 하는게 보통이지 않음?
+  근데 서버는 서버고\
+  외부에서는 web이나 다른식으로 하는게 보통이지 않음?
 
 ***
 
@@ -120,16 +119,14 @@ apt install docker.io
 * 모든 container는 host os와 kernel을 공유한다.\
   다만 위에 설명에 있듯\
   각 container끼리는 영향을 주지 않음.
-* kernel공유, container의 격리 같은 특성은\
+* kernel공유, container의 격리 와 같은 특성은\
   os vitualization에서 기인함.
 
 #### Image - Container
 
 * Image를 설치한다는 느낌이 아니고\
-  `Class instance = new Class();`\
-  ``이느낌에 가까움\
-  `image container = new image();`\
-  ``이렇게.
+  `Class instance = new Class();`이느낌에 가까움\
+  `image container = new image();`이렇게.
 * class가 image, instance가 container인데\
   instance(container)의 변화가\
   class(image)에 영향이 없는건 비슷함.
@@ -144,12 +141,9 @@ apt install docker.io
 
 ### Life Cycle
 
-*   전반적인 주기 &#x20;
-
-    <figure><img src="https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true" alt=""><figcaption></figcaption></figure>
-
-    * docker hub에서 pull 한게 image
-    * image에서 create 또는 run을 한게 container
+* 전반적인 주기 ![https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true](https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true)
+  * docker hub에서 pull 한게 image
+  * image에서 create 또는 run을 한게 container
 
 ***
 

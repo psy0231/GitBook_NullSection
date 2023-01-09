@@ -12,6 +12,7 @@
 * [Stub](grind/stub.md)
 * [Docker](grind/docker/README.md)
   * [Docker 1 - Intro](grind/docker/docker-1-intro.md)
+  * [Docker 2 - Image](grind/docker/docker-2-image.md)
 
 ## Project
 
