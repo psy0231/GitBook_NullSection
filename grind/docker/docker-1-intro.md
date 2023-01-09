@@ -120,7 +120,7 @@ apt install docker.io
 * 모든 container는 host os와 kernel을 공유한다.\
   다만 위에 설명에 있듯\
   각 container끼리는 영향을 주지 않음.
-* kernel공유, container의 격리 와 같은 특성은\
+* kernel공유, container의 격리 같은 특성은\
   os vitualization에서 기인함.
 
 #### Image - Container
