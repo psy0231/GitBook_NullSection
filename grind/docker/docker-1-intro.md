@@ -144,11 +144,12 @@ apt install docker.io
 
 ### Life Cycle
 
-* 전반적인 주기  \
-  \
-  ![https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true](https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true)
-  * docker hub에서 pull 한게 image
-  * image에서 create 또는 run을 한게 container
+*   전반적인 주기 &#x20;
+
+    <figure><img src="https://github.com/psy0231/psy0231.github.io/blob/main/postAssets/img/docker/docker%20lifecycle.jpg?raw=true" alt=""><figcaption></figcaption></figure>
+
+    * docker hub에서 pull 한게 image
+    * image에서 create 또는 run을 한게 container
 
 ***
 
