@@ -13,6 +13,7 @@
 * [Docker](grind/docker/README.md)
   * [Docker 1 - Intro](grind/docker/docker-1-intro.md)
   * [Docker 2 - Image](grind/docker/docker-2-image.md)
+  * [Docker 3 - Container](grind/docker/docker-3-container.md)
 
 ## Project
 
