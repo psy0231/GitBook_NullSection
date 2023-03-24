@@ -1,6 +1,6 @@
 # 1. Parameters
 
-### intro
+## intro
 
 * method의 parameter에 대해.
 * `ref` / `out`에서 계속 확장됨..
@@ -8,14 +8,14 @@
 
 ***
 
-### params
+## params
 
-* parameter를 가변개수의 변수가 있다고 지정.
+* parameter가 가변개수라고 지정.
 * 1차원 배열만 가능
-* `params`뒤에는 추가로 parameter추가가 안됨.\
+* 뒤에는 추가로 parameter추가가 안됨.\
   앞에는 상관없음.
-* `param`키워드는 선언시 하나만 쓸 수 있음.
-* `,`로 구별해 넣으면 알아서 들어감.\
+* 선언시 한번만 쓸 수 있음.
+* `,`로 구별해 넣으면 알아서 들어가고\
   배열로 넣으면 그거 통으로 들어감(차원이 안늘어남)
 *   ex
 
@@ -57,34 +57,33 @@
 
 ***
 
-### Passing Parameters
+## Passing Parameters
 
-* argument를 값 또는 참조로\
-  parameter에 전달한다.
-* (call / pass) (by value / by reference) 형식 문제.
+* argument를 값 또는 참조로 parameter에 전달.
+* (call / pass) by (value / reference).
 * value로 전달
   * 일반적으로 기본
   * 변수의 복사본을 method에 전달.
-  * value type의 변수에는 해당 데이터가 직접 포함.
+  * value type의 변수에는\
+    해당 데이터가 직접 포함.
 * reference로 전달
   * `ref`, `out`등을 써야함.
   * 변수에 대한 액세스 권한을 메서드에 전달.
-  * reference type의 변수에는 해당 데이터에 대한 참조가 포함.
+  * reference type의 변수에는\
+    해당 데이터에 대한 참조가 포함.
 * 구조체는 value type.
 * 클래스 인스턴스는 reference type.
-  * reference type은 값으로 , 참조로 전달하는경우\
-    약간 차이가 있음.
+  * reference type은 전달 방식의 차이인\
+    value/reference별 약간 차이가 있음.
 
-#### Pass a value type by value
+### Pass a value type by value
 
 * value type을 value로 넘김
-* 호출된 method가\
-  parameter를 할당해\
+* 호출된 method가 parameter를 할당해\
   다른 개체를 참조하는 경우\
   변경 내용은 호출자에서 표시되지 않음.
 * 호출된 method가\
-  parameter에서 참조하는 개체의\
-  상태를 수정하는 경우\
+  parameter에서 참조하는 개체의 상태를 수정하는 경우\
   변경 내용은 호출자에서 표시되지 않음.
 *   ex
 
@@ -113,18 +112,16 @@
     */
     ```
 
-#### Pass a value type by reference
+### Pass a value type by reference
 
 * value type을 reference로 넘김
-* 호출된 method가\
-  parameter를 할당해\
+* 호출된 method가 parameter를 할당해\
   다른 개체를 참조하는 경우\
   변경 내용은 호출자에서 표시되지 않음.
   * ??????????
   * 반영되어야 정상아님?
-* 호출된 method가\
-  parameter에서 참조하는 개체의\
-  상태를 수정하는 경우\
+* 호출된 method가 parameter에서 참조하는\
+  개체의 상태를 수정하는 경우\
   변경 내용은 호출자에서 표시됨.
 *   ex
 
@@ -153,11 +150,10 @@
     */
     ```
 
-#### Pass a reference type by value
+### Pass a reference type by value
 
 * reference type을 value로 넘김
-* 호출된 method가\
-  parameter를 할당해\
+* 호출된 method가 parameter를 할당해\
   다른 개체를 참조하는 경우\
   변경 사항은 호출자에게 표시되지 않음.
 * 호출된 method가\
@@ -188,20 +184,18 @@
 
     * 매개 변수가 arr에 대한 참조이므로\
       배열 요소의 값을 변경가능.
-    * 그러나 method 내부에서 new로 새로 할당하면\
-      새 배열을 참조하게됨.\
-      이 때부터는 전달받았던 arr에 영향을 주지 않음.
+    * 그러나 method 내부에서\
+      new로 새로 할당하면 새 배열을 참조하게됨.\
+      이 때부터 전달받았던 arr에 영향을 주지 않음.
 
-#### Pass a reference type by reference
+### Pass a reference type by reference
 
 * reference type를 reference로 넘김
-* 호출된 method가\
-  parameter를 할당해\
+* 호출된 method가 parameter를 할당해\
   다른 개체를 참조하는 경우\
   변경 내용은 호출자에서 표시됨.
-* 호출된 method가\
-  parameter에서 참조하는 개체의\
-  상태를 수정하는 경우  \
+* 호출된 method가 parameter에서 참조하는 개체의\
+  상태를 수정하는 경우\
   변경 내용이 호출자에서 표시됨.
 *   ex
 
@@ -228,7 +222,7 @@
 
 ***
 
-### in
+## in
 
 * 참조전달
 * 읽기전용
@@ -251,7 +245,7 @@
 * 호출된 method는\
   argument에 값을 할당하거나 수정할 수 없음.
 
-#### 참조전달 vs 읽기전용
+### 참조전달 vs 읽기전용
 
 * 참조전달의 경우 전달받은 method에서\
   값변경이 일어날 경우\
@@ -295,30 +289,33 @@
     * 메서드에서 전달받은 list를 새로 할당 불가.
       * `// pArray = new ...`이 부분이문제.
       * error CS8331: 읽기 전용 변수이므로\
-        변수 'in List'에 할당할 수 없음.
-* 값형식을 `in`으로 전달하는 경우에도 변경불가였음\
-  이 경우 값은 변경을 새로 할당으로 동작하는거면\
-  둘이 비슷해지는것같음.
+        변수 `in List<int>`에 할당할 수 없음.
+* 값형식을 `in`으로 전달하는 경우에도 변경불가.\
+  이 경우 value가 변경되는 방식이\
+  새로 할당으로 동작하는거면 둘이 비슷해지는것같음.
 * 아무튼 읽기전용은 새로 할당을 허용하지 않음.\
   비유하면 `malloc`의 시작 포인터를 못바꾸는 느낌?
 
 ***
 
-### ref
+## ref
 
 * 변수가 참조이거나 다른 개체의 별칭임을 나타냄.\
   다음 과 같은 용도가 있다함.
   * method 시그니처 및 메서드 호출에서\
     인수를 메서드에 참조로 전달.
-  * method 시그니처에서 값을 호출자에게 참조로 반환.
+  * method 시그니처에서\
+    값을 호출자에게 참조로 반환.
   * 멤버 본문에서 참조 반환 값이\
-    호출자가 수정하려는 참조로 로컬에 저장됨을 나타냄.\
-    또는 지역 변수가 참조로 다른 값에 액세스함을 나타냄.
+    호출자가 수정하려는 참조로\
+    로컬에 저장됨을 나타냄.\
+    또는 지역 변수가\
+    참조로 다른 값에 액세스함을 나타냄.
   * `struct` 선언에서 `ref struct` 또는\
     `readonly ref struct`를 선언.
   * 선언에서 `ref struct` 필드가 참조임을 선언.
 
-#### 참조로 argument 전달
+### 참조로 argument 전달
 
 * 값이아닌 참조로 전달.
 * method 정의, 호출시 명시적으로 사용해야함.
@@ -369,12 +366,13 @@
     * 호출된 메서드에서 새 할당이 일어나면\
       호출자가 참조하던것도 새 객체로 바뀜
 
-#### 참조 반환 값
+### 참조 반환 값
 
 * `ref return`
 * method가 호출자에게 참조로 반환.
-*   호출자는 method에서 반환된 값을 수정할 수 있으며\
-    해당 변경 내용은 호출된 method의 개체 상태에 반영
+*   호출자는 method에서 반환된 값을\
+    수정할 수 있고 해당 변경 내용은\
+    호출된 method의 개체 상태에 반영
 
     ```csharp
     public class Book
@@ -461,7 +459,7 @@
 
     이런식으로…
 
-#### 참조 로컬
+### 참조 로컬
 
 * 참조 지역 변수
 * `return ref`을 사용하여 반환된 값을 참조.
@@ -478,17 +476,18 @@
     ```csharp
     ref var book = ref bc.GetBookByTitle("Call of the Wild, The");
     ```
-*   동일한 방법으로 참조로 값에 액세스할 수 있다.\
-    경우에 따라 참조로 값에 액세스하면\
-    비용이 많이 들 수 있는 복사 작업을 피함으로써 성능이 향상됨.\
-    예를 들어, 값을 참조하는 데 사용되는\
+* 동일한 방법으로 참조로 값에 액세스할 수 있다.\
+  경우에 따라 참조로 값에 액세스하면\
+  비용이 많이 들 수 있는\
+  복사 작업을 피함으로써 성능이 향상됨.
+*   예를 들어, 값을 참조하는 데 사용되는\
     참조 지역 변수를 정의하는 방법.
 
     ```csharp
     ref VeryLargeStruct reflocal = ref veryLargeStruct;
     ```
 
-#### Ref readonly 로컬
+### Ref readonly 로컬
 
 * 참조 읽기 전용 로컬은\
   해당 시그니처에 `ref readonly`가 있고\
@@ -496,12 +495,14 @@
   속성으로 반환된 값을 참조하는 데 사용.
 * 변수는 `ref readonly` 지역 변수의\
   `ref` 속성을 변수와 `readonly` 결합.\
-  변수는 할당된 스토리지에 대한 별칭이며 수정할 수 없음.
+  변수는 할당된 위치에 대한 별칭이며 수정불가.
 
-#### ref 필드
+### ref 필드
 
-*   `ref struct`유형에서 `ref`필드를 선언할 수 있다.\
-    `ref` 필드는 참조가 참조하는 객체보다 오래 지속되지 않도록\
+*   `ref struct`유형에서\
+    `ref`필드를 선언할 수 있다.\
+    `ref` 필드는 참조가\
+    참조하는 객체보다 오래 지속되지 않도록\
     `ref struct`유형에서만 유효.\
     이 기능은 `System.Span<T>`와 같은 유형을 활성화.
 
@@ -515,14 +516,14 @@
     }
     ```
 
-    * `Span<T>`는 액세스하는 데 사용되는 참조를 저장.
+    * `Span<T>`는 액세스에 사용되는 참조를 저장.
     * 참조를 사용하면 `Span<T>` 개체가 참조하는\
       저장소의 복사본을 만들지 않도록 할 수 있음.
     * 복사작업 피해서 성능향상관련인가?
 
 ***
 
-### out
+## out
 
 * `ref`와 대부분 비슷함.
 * `out` 인수로 전달되는 변수는\
@@ -531,7 +532,7 @@
   호출된 method는 반환되기 전에\
   값을 할당해야 한다.
 
-#### out 매개 변수 선언
+### out 매개 변수 선언
 
 * `out`은여러 값을 반환하기 위한 일반적인 방법.\
   비슷하게 튜플이 있음.\
@@ -540,9 +541,10 @@
   method return 전에 out은 받은 parameter할당이\
   강제적이기때문에 여기 나온듯
 
-#### out 인수를 사용하여 메서드 호출
+### out 인수를 사용하여 메서드 호출
 
-*   out는 parameter로 전달할 때 초기화가 필요 없었음.
+*   out는 parameter로 전달할 때\
+    초기화가 필요 없었음.
 
     ```csharp
     string numberAsString = "1640";
@@ -556,15 +558,17 @@
     //       Converted '1640' to 1640
     ```
 * `out`으로 굳이 뭘 만들어 보낼 필요가 없음.\
-  지금까지는 `int number;`를 선언하고 썼는데 필요없음.\
-  따라서 `out`으로 반환받을 데이터 형도 정할 필요가 없어짐.\
-  더 깔끔한 코드가 된다길래…
+  지금까지 썼을`int number;`가 필요없음.\
+  위 예시에서 `out var number`이\
+  따로 선언되지 않았어도\
+  if안에서, 끝난뒤 number를 사용할수 있다.
+* 더 깔끔한 코드가 된다길래…
 
 ***
 
-### in, ref, out
+## in, ref, out
 
-#### 공통
+### 공통
 
 * method의 매개 변수 목록에 사용되는 경우\
   `in`, `ref`, `out` 키워드는 인수가 값이 아니라\
@@ -607,10 +611,11 @@
     `in`, `ref`, `out`이 서명의 일부로 간주
 * `in`, `ref`, `out`을 사용 못하는 method
   * async method
-  * yield return 또는 yield break를포함하는 반복기 method
+  * yield return 또는\
+    yield break를포함하는 반복기 method
 * 확장 메서드에서 각각의 제한사항..
 
-#### 차이점
+### 차이점
 
 |        | in   | ref  | out  |
 | ------ | ---- | ---- | ---- |
@@ -620,7 +625,7 @@
 
 ***
 
-### 참고
+## 참고
 
 * [TryParse](https://referencesource.microsoft.com/#mscorlib/system/int32.cs,325507e509229dbc)
 * [TryDequeue](https://referencesource.microsoft.com/#mscorlib/system/Collections/Concurrent/ConcurrentQueue.cs,0e91b925b71182e1)
