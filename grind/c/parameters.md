@@ -79,11 +79,12 @@
 ### Pass a value type by value
 
 * value type을 value로 넘김
-* 호출된 method가 parameter를 할당해\
-  다른 개체를 참조하는 경우\
+* 호출된 method가 parameter를 할당해  \
+  다른 개체를 참조하는 경우  \
   변경 내용은 호출자에서 표시되지 않음.
 * 호출된 method가\
-  parameter에서 참조하는 개체의 상태를 수정하는 경우\
+  parameter에서 참조하는 개체의  \
+  상태를 수정하는 경우\
   변경 내용은 호출자에서 표시되지 않음.
 *   ex
 
@@ -120,7 +121,8 @@
   변경 내용은 호출자에서 표시되지 않음.
   * ??????????
   * 반영되어야 정상아님?
-* 호출된 method가 parameter에서 참조하는\
+* 호출된 method가  \
+  parameter에서 참조하는\
   개체의 상태를 수정하는 경우\
   변경 내용은 호출자에서 표시됨.
 *   ex
@@ -194,7 +196,8 @@
 * 호출된 method가 parameter를 할당해\
   다른 개체를 참조하는 경우\
   변경 내용은 호출자에서 표시됨.
-* 호출된 method가 parameter에서 참조하는 개체의\
+* 호출된 method가  \
+  parameter에서 참조하는 개체의\
   상태를 수정하는 경우\
   변경 내용이 호출자에서 표시됨.
 *   ex
@@ -537,8 +540,8 @@
 * `out`은여러 값을 반환하기 위한 일반적인 방법.\
   비슷하게 튜플이 있음.\
   튜플을 더 권장하는것같음.
-* `ref`도 될 수 있겠지만\
-  method return 전에 out은 받은 parameter할당이\
+* `ref`도 될 수 있겠지만 method return 전에 \
+  out은 받은 parameter할당이\
   강제적이기때문에 여기 나온듯
 
 ### out 인수를 사용하여 메서드 호출
