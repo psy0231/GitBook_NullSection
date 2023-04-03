@@ -16,6 +16,7 @@
   * [5. Operators](grind/python/5.-operators.md)
   * [6. Type Inheritance](grind/python/6.-type-inheritance.md)
   * [7. dict](grind/python/7.-dict.md)
+  * [8. str](grind/python/8.-str.md)
 * [Stub](grind/stub.md)
 * [Docker](grind/docker/README.md)
   * [1. Intro](grind/docker/1.-intro.md)
