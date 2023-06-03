@@ -5,8 +5,13 @@
 ## Grind
 
 * [C#](grind/c/README.md)
-  * [1. Parameters](grind/c/parameters.md)
-  * [2. Action & Func](grind/c/2.-action-and-func.md)
+  * [1. Parameters](grind/c/1.-parameters.md)
+  * [2. Delegate](grind/c/2.-delegate.md)
+  * [3. Action / Func](grind/c/3.-action-func.md)
+  * [4. Anonymous](grind/c/4.-anonymous.md)
+  * [5. Lambda Expressions](grind/c/5.-lambda-expressions.md)
+  * [6. Asynchronous programming of C#](grind/c/6.-asynchronous-programming-of-c.md)
+  * [7. Task - Basic](grind/c/7.-task-basic.md)
 * [Git](grind/git.md)
 * [Python](grind/python/README.md)
   * [1. Intro 1](grind/python/1.-intro-1.md)
@@ -17,7 +22,8 @@
   * [6. Type Inheritance](grind/python/6.-type-inheritance.md)
   * [7. dict](grind/python/7.-dict.md)
   * [8. str](grind/python/8.-str.md)
-* [Stub](grind/stub.md)
+* [Stub](grind/stub/README.md)
+  * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
   * [1. Intro](grind/docker/1.-intro.md)
   * [2. Image](grind/docker/2.-image.md)
@@ -28,5 +34,5 @@
 
 ## Project
 
-* [Page 5](project/page-5/README.md)
+* [Page 5](project/page-5.md)
   * [Page 1](project/page-5/page-1.md)
