@@ -35,5 +35,5 @@
 
 ## Project
 
-* [Page 5](project/page-5.md)
+* [Page 5](project/page-5/README.md)
   * [Page 1](project/page-5/page-1.md)
