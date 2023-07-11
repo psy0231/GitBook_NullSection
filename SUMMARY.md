@@ -14,6 +14,7 @@
   * [7. Task - Basic](grind/c/7.-task-basic.md)
   * [8. Task - Basic Extension](grind/c/8.-task-basic-extension.md)
   * [9. Task - Properties](grind/c/9.-task-properties.md)
+  * [10. Task - Method](grind/c/10.-task-method.md)
 * [Git](grind/git.md)
 * [Python](grind/python/README.md)
   * [1. Intro 1](grind/python/1.-intro-1.md)
