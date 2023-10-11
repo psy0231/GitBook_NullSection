@@ -25,6 +25,7 @@
   * [6. Type Inheritance](grind/python/6.-type-inheritance.md)
   * [7. dict](grind/python/7.-dict.md)
   * [8. str](grind/python/8.-str.md)
+  * [9. Tuple](grind/python/9.-tuple.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
