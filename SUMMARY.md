@@ -26,6 +26,7 @@
   * [7. dict](grind/python/7.-dict.md)
   * [8. str](grind/python/8.-str.md)
   * [9. Tuple](grind/python/9.-tuple.md)
+  * [10. List](grind/python/10.-list.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
