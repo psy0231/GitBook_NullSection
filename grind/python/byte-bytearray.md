@@ -1,0 +1,248 @@
+# Byte, Bytearray
+
+## Init
+
+* binary sequence형으로 분류되는데\
+  원래 memoryview까지 3개임.
+* 이 전에 type계통은\
+  sequence - ByteString - `bytes`였는데\
+  bytestring가 삭제됐고\
+  지금은 sequence - `bytes`임.\
+  관련된 내용은 나중에 수정.
+* 암튼 쉽게,\
+  `byte` ⇒ `tuple`\
+  `list` ⇒ `bytearray`\
+  이 관계. `memoryview`는 따로함.
+* 이름처럼 binary 조작을 위해 사용.
+* 버퍼 프로토콜을 사용하여\
+  사본을 만들 필요 없이\
+  다른 binary 객체의 메모리에 액세스하는\
+  `memoryview`에 의해 지원.
+* array 모듈은 32비트 정수 및\
+  IEEE754 이중 정밀 부동 값과 같은\
+  기본 데이터 유형의 효율적인 저장을 지원.
+
+## Bytes Objects
+
+* `bytes`는 sequence 하위로\
+  단일 byte들의 immutable sequence.
+* binary와 관련된 대부분이\
+  ASCII 텍스트 인코딩이 기반이기 때문에\
+  `bytes`는 ASCII와 호환될 때만 유효.
+* str과 관련된 여러 method 제공.
+
+### _class_ bytes(\[_source_\[, _encoding_\[, _errors_]]])
+
+* `str`과 사용이 비슷하나 접두사 b가 붙음.
+  * Single quotes:\
+    b'still allows embedded "double" quotes'
+  * Double quotes:\
+    b"still allows embedded 'single' quotes"
+  * Triple quoted:\
+    b'''3 single quotes''', b"""3 double quotes"""
+* `bytes` 표현은\
+  literal 형식 (`b'...'`) 을 사용하는데,\
+  종종 `bytes([46, 46, 46])` 보다 유용하기 때문.\
+  `list(b)` 를 사용하면 bytes를\
+  항상 정수 리스트로 변환할 수 있음.\
+  `bytearray` 도 같음.
+* literal 형식 외 다른 방법은
+  * 지정된 길이를 0으로 초기화 : `bytes(10)`
+  * 정수 iterable 에서 : `bytes(range(20))`
+  * 버퍼 프로토콜을 통해\
+    기존 binary 데이터 복사: `bytes(obj)`
+* 내장 `bytes`도 있음.
+* 선언된 _source_ 인코딩에 관계없이\
+  ASCII 문자만 허용.
+* 127을 초과하는 binary는\
+  적절한 escape sequence를 사용해야함.
+*   `str` literal과 마찬가지로\
+    `byte` literal도 r 접두사를 사용하여\
+    escape sequence 처리를\
+    비활성화할 수 있음.\
+    이 관련해서 설명이 좀 길어서 넘김.
+
+    ```python
+    b = b'\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64\x21'
+    print(b)
+
+    b = rb'\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64\x21'
+    print(b)
+
+    # b'Hello World!'
+    # b'\\x48\\x65\\x6c\\x6c\\x6f\\x20\\x57\\x6f\\x72\\x6c\\x64\\x21'
+    ```
+* `byte` literal은 ASCII 기반이지만,\
+  실제는 immutable 정수 sequence처럼 동작.\
+  sequence의 각 값은 0 \~ 255의 정수로 제한되며\
+  이 제한을 위반하면 `ValueError` 발생.\
+  이러한 제한은 ASCII 기반 요소를 포함하는\
+  많은 binary type에서 유용하게 사용될 수 있지만,\
+  일반적으로 모든 binary 데이터에 적용되지는 않음.\
+  ASCII 호환 텍스트 처리 알고리즘은\
+  일반적으로 데이터 손상이 있을 수 있기 때문에,\
+  이러한 제한이 의도적으로 수행됨.
+* 16진수 2개면 1 byte표현이 되는데\
+  예를들어 0xff가 255 인것처럼.\
+  그래서 byte 데이터 표현에 16진수 2개를 자주 씀.\
+  `bytes` 클래스에는 이와 관련된 method가 있고\
+  `bytearray`에도 있음.
+  * _classmethod_ **fromhex**(_string_)
+  * **hex**(\[_sep_\[, _bytes\_per\_sep_]])
+*   인덱싱, 슬라이싱 관련
+
+    * `bytes`는 태생이 sequence이고\
+      정수 범위까지 정해져있음.\
+      따라서 `bytes`_b_가 있을 때 `b[0]` 는 정수,\
+      `b[0:1]` 는 길이 1인 `bytes`가 된다.
+    * 이건 `bytearray` 도 같음.
+    * 반대의 경우는 `str`로\
+      둘 다 `str` return 함.
+
+    ```python
+    b = bytes([0x41, 0x42, 0x43, 0x44])
+    print(b[0])
+    print(b[0:1])
+    s = 'asdf'
+    print(s[0])
+    print(s[0:1])
+
+    # 65
+    # b'A'
+    # a
+    # a
+    ```
+
+## **Bytearray Objects**
+
+* `bytearray` 객체는 `bytes` 객체의 mutable.
+* 해서 여기 내용이 짧은건\
+  어지간하면 `bytes`랑 내용이 공유됨.
+
+### _class_ **bytearray**(\[_source_\[, _encoding_\[, _errors_]]])
+
+* `bytearray`는 전용 literal 문법은 없으며\
+  항상 생성자를 호출
+  * 빈 인스턴스 : `bytearray()`
+  * 주어진 길이를 0초기화 : `bytearray(10)`
+  * 정수의 iterable : `bytearray(range(20))`
+  * 버퍼 프로토콜을 통해\
+    기존 바이너리 데이터 복사: `bytearray(b'Hi!')`
+* `bytearray`는 `bytes`와 공통된 연산과\
+  mutable sequence 연산도 지원.
+* 내장 `bytearray` 도 참조.
+* 여기에도 `bytes`와 같은 이유로\
+  추가 클래스 메서드가 있다.
+  * _classmethod_ **fromhex**(_string_)
+  * **hex**(\[_sep_\[, _bytes\_per\_sep_]])
+
+## **Bytes and Bytearray Operations**
+
+* `Bytes`와 `Bytearray` 는\
+  Common Sequence Operations 지원.
+  * 이 설명은 **6. Type Inheritance**에.
+  * 둘 다 Sequence하위라.
+* 같은 형의 피연산자뿐만 아니라\
+  모든 bytes-like object와 상호 운용됨.
+* 이러한 유연성으로 인해,\
+  오류 없이 작업을 자유롭게 혼합할 수 있음.\
+  그러나, 결과의 return type은\
+  피연산자의 순서에 따라 달라질 수 있음.
+*   `Bytes`및 `Bytearray` 의 메서드는\
+    인자로 문자열을 받아들이지 않음.\
+    문자열의 메서드가 바이트열을\
+    인자로 허용하지 않는 것과 마찬가지.\
+    예를 들어
+
+    ```python
+    a = "abc"
+    b = a.replace("a", "f")
+
+    a = b"abc"
+    b = a.replace(b"a", b"f")
+    ```
+* `str`의 method가 그대로 나옴.\
+  그 요소만 byte인 느낌.\
+  `str`은 unicode sequence라면\
+  여긴 ASCII sequece라 그런듯.
+* 또한 둘 다 method들 공통적으로\
+  어지간한 return은\
+  원본 type과 같은 새 objec가 나옴.\
+  연산에 의해 원본에 변화가 없어도.
+* 그래서 `str`과 공통되지 않은 method만 쓰고\
+  공통부분이 필요하면 `str`로
+
+### decode
+
+```python
+bytes.decode(encoding='utf-8', errors='strict')
+bytearray.decode(encoding='utf-8', errors='strict')
+```
+
+*   디코딩된 byte를 str로 반환.
+
+    ```python
+    b = bytes(b"\x68\x65\x6c\x6c\x6f")
+    print(b)
+    s = b.decode('utf-8')
+    print(s)
+
+    # b'hello'
+    # hello
+    ```
+* 인코딩 기본값은 'utf-8'.\
+  가능한 값은 표준 인코딩 참조.
+* errors는 디코딩 오류를 처리하는 방법.\
+  'strict'(기본값)인 경우 `UnicodeError` 발생.\
+  다른 가능한 값은 'ignore', 'replace' 및\
+  codecs.register\_error() 등\
+  자세한 내용은 처리기를 참조.
+* 성능상의 이유로\
+  디코딩 오류가 실제로 발생하거나\
+  파이썬 개발 모드가 활성화되거나\
+  디버그 빌드가 사용되지 않는 한\
+  오류 값이 유효한지 확인되지 않음.
+* 인코딩 인수를 `str`에 전달하면\
+  임시 `bytes`이나 `bytearray`를 만들 필요 없이\
+  모든 bytes-like object를 직접 디코딩가능.\
+  버전 3.1에서 변경된 모듈이 지원.
+* 버전 3.9에서 변경:\
+  이제 스타일 개발 모드 및\
+  디버그 모드에서 오류 인수 값이 확인됨.
+
+### _classmethod_ **fromhex**(_string_)
+
+* 이 (`bytes` / `bytearray`)의 메서드는\
+  `str`을 디코딩해서\
+  (`bytes` / `bytearray`) 를 return.
+*   `str`은 바이트 당\
+    두 개의 16진수가 포함되어야 하며\
+    ASCII 공백은 무시.
+
+    ```python
+    bytearray.fromhex('2Ef0 F1f2  ')
+    # bytearray(b'.\xf0\xf1\xf2')
+    ```
+* _버전 3.7에서 변경:_\
+  이제 스페이스뿐만 아니라\
+  `str`에 있는 모든 ASCII 공백을 건너뜀.
+
+### **hex**(\[_sep_\[, _bytes\_per\_sep_]])
+
+*   인스턴스의 byte마다\
+    2 자릿수의 16진수로 표현한\
+    `str` 객체를 반환.
+
+    ```python
+    b = bytes([0x41, 0x42, 0x43, 0x44])
+    hex_str = b.hex(sep=':', bytes_per_sep=3)
+    print(hex_str)  
+
+    # 41:424344
+    ```
+* _버전 3.5에 추가._
+* _버전 3.8에서 변경:_\
+  16진수 출력의 바이트 사이에\
+  구분 기호를 삽입하기 위해 선택적 _sep_과  _bytes\_per\_sep_ 매개 변수를 지원.
+* _sep_는 구분자
+* _bytes\_per\_sep_는 step인듯 근데 뒤부터?.
