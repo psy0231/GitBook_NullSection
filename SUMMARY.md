@@ -28,6 +28,7 @@
   * [9. Tuple](grind/python/9.-tuple.md)
   * [10. List](grind/python/10.-list.md)
   * [11. Byte, Bytearray](grind/python/11.-byte-bytearray.md)
+  * [12. Memory Views](grind/python/12.-memory-views.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
