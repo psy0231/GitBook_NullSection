@@ -30,6 +30,7 @@
   * [11. Byte, Bytearray](grind/python/11.-byte-bytearray.md)
   * [12. Memory Views](grind/python/12.-memory-views.md)
   * [13. Set, Frozenset](grind/python/13.-set-frozenset.md)
+  * [14. Function](grind/python/14.-function.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
