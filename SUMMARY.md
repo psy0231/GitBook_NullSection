@@ -31,6 +31,7 @@
   * [12. Memory Views](grind/python/12.-memory-views.md)
   * [13. Set, Frozenset](grind/python/13.-set-frozenset.md)
   * [14. Function](grind/python/14.-function.md)
+  * [15. Built-in Function](grind/python/15.-built-in-function.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
@@ -39,7 +40,7 @@
   * [03. Container](grind/docker/03.-container.md)
   * [04. Container Option](grind/docker/04.-container-option.md)
   * [05. Exec / Attach](grind/docker/05.-exec-attach.md)
-  * [06. Copy](grind/docker/6.-copy.md)
+  * [06. Copy](grind/docker/06.-copy.md)
 
 ## Project
 
