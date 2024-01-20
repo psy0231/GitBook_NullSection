@@ -32,6 +32,7 @@
   * [13. Set, Frozenset](grind/python/13.-set-frozenset.md)
   * [14. Function](grind/python/14.-function.md)
   * [15. Built-in Function](grind/python/15.-built-in-function.md)
+  * [16. Class](grind/python/16.-class.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
