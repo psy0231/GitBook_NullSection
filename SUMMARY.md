@@ -34,7 +34,7 @@
   * [15. Built-in Function](grind/python/15.-built-in-function.md)
   * [16. Class](grind/python/16.-class.md)
   * [17. Inheritance](grind/python/17.-inheritance.md)
-  * [Page](grind/python/page.md)
+  * [18. Polymorphism](grind/python/18.-polymorphism.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
