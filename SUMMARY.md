@@ -35,6 +35,7 @@
   * [16. Class](grind/python/16.-class.md)
   * [17. Inheritance](grind/python/17.-inheritance.md)
   * [18. Polymorphism](grind/python/18.-polymorphism.md)
+  * [19. Encapsulation](grind/python/19.-encapsulation.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
