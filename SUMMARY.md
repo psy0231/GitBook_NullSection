@@ -37,6 +37,7 @@
   * [18. Polymorphism](grind/python/18.-polymorphism.md)
   * [19. Encapsulation](grind/python/19.-encapsulation.md)
   * [20. Abstract](grind/python/20.-abstract.md)
+  * [21. Lambda](grind/python/21.-lambda.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
 * [Docker](grind/docker/README.md)
