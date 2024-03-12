@@ -40,6 +40,7 @@
   * [21. Lambda](grind/python/21.-lambda.md)
 * [Stub](grind/stub/README.md)
   * [sync, async, block, non-block](grind/stub/sync-async-block-non-block.md)
+  * [BFS, DFS](grind/stub/bfs-dfs.md)
 * [Docker](grind/docker/README.md)
   * [01. Intro](grind/docker/01.-intro.md)
   * [02. Image](grind/docker/02.-image.md)
